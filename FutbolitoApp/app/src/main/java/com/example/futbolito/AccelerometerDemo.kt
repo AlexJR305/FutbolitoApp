@@ -66,7 +66,6 @@ fun AccelerometerDemo() {
                 fontSize = 24.sp,
                 modifier = Modifier.padding(16.dp)
             )
-
             // Contenedor
             BoxWithConstraints(
                 modifier = Modifier.fillMaxSize()
@@ -92,11 +91,11 @@ fun AccelerometerDemo() {
 
                 // Verifica si el círculo toca los límites superior o inferior y actualiza el marcador
                 when {
-                    center.y - radius <= 0 -> {
+                    center.y - radius  <= 0 && (width/2)<(center.x)+100 && (width/2)>center.x-100 -> {
                         topScore += 1
                         center = Offset(width / 2, height / 2) // Reposiciona el círculo en el centro
                     }
-                    center.y + radius >= height -> {
+                    center.y + radius >= height && (width/2)<(center.x)+100 && (width/2)>center.x-100 -> {
                         bottomScore += 1
                         center = Offset(width / 2, height / 2) // Reposiciona el círculo en el centro
                     }
